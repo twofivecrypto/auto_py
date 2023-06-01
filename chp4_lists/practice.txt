@@ -1,0 +1,18 @@
+1 = {
+    [] = an empty list
+}
+
+2 = {
+
+spam = [2, 4, 6, 8 ,10]
+spam.insert(2, 'world')
+print(spam)
+
+}
+
+3 =
+{
+}
+
+
+
