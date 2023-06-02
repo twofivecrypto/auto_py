@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Locker</title>
+    <style>
+        * {
+            justify-content: center;
+            scroll-padding: 1% 1%;
+            background-color: rgb(32, 32, 32);
+            color: whitesmoke;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .header-logo {
+            padding: 100px 20% 20px 45%;
+        }
+        .header {
+            text-align: center;
+            color: royalblue;
+        }
+        .header_sub {
+            text-align: center;
+            font-size: medium ;
+            color: goldenrod;
+        }
+        .codebox, #codebox, #codebox2 {
+            scroll-padding-left: 75px;
+            align-content: center;
+            width: 75%;
+            background-color: rgb(228, 228, 228);
+            color: black;
+            font-weight: 650;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header" style="border-width: 2px; border-style: outset;">Project: Password Locker</h1>
+    <img class="header-logo" src="\projects\Password Locker\logopy3.png" height="250" id="headerlogo">
+    <h2 class="header_sub">Automating the Boring Stuff with Python</h2>
+    <br>
+    <br>
+
+    <div class="steps">
+        <ul class="steps-ul">
+            <ol class="steps-ul-ol">
+                <li id="steps-ol-li">Program Design and Data Structures</li>
+                    <p id="steps-li-p">We want to be able to run this program with a command line
+                        <br>argument, such as <em>email</em> or <em>blog</em>.</p>
+                        <ul>
+                            <li>The accounts password will be copied into the clipboard<br>
+                            so that the user can paste it into a Password field.</li>
+                            <li>This way, we can have long, complicated passwords without<br>having to memorize them.</li>
+                        </ul>
+                        <container class="codebox">
+                            <p id="codebox">
+                                #! python3<br>
+                                <br>
+                                #vipergrip.py - an insecure password locker program.<br>
+                                <br>
+                                PASSWORDS = {<br>
+                                'email' : 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',<br>
+                                'blog' : 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',<br>
+                                'luggage' : '12345'}
+                                <br>
+                                <br>
+                            </p>
+                        </container>
+                <li>Handle Command Line Arugments</li>
+                    <p>Command line arugments will be stored in the variable <em>sys.argv</em></p>
+                    <ul>
+                        <li>The first item in the <em>sys.argv</em> list should always be the a string
+                        containing the programs file name (in this case, 'vipergrip.py).</li>
+                        <li>For this program, the arugment is the name of the account whose password we want.
+                            Since the command line is mandatory, you will display a message to the user if they forget to add to it.</li>
+                            <ul>
+                                <br><em>That is, if the sys.argv list has fewer than 2 values in it.</em><br>
+                            </ul>
+                            <container class="codebox2">
+                            <p id="codebox2">
+                                #! python3<br>
+                                #vipergrip.py - an insecure password locker program.<br>
+                                <br>
+                                PASSWORDS = {<br>
+                                'email' : 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',<br>
+                                'blog' : 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',<br>
+                                'luggage' : '12345'}<br>
+                                <br>
+                                <br>
+                                import sys<br>
+                                <br>
+                                if len(sys.argv) < 2:<br>
+                                    print('Usage: python vipergrip.py [account] - copy account password')<br>
+                                    sys.exit()<br>
+                                    <br>
+                                account = sys.argv[1] #first command line argument is the account name<br>
+                                <br>
+                            </container>
+                            </p>
+                        </li>
+                    </ul><li>Copy the Right Password</li>
+                    <p>Now that account name is stored, we should be able to see it in the variable account,<br>
+                    and so we check to see if it exists in the PASSWORDS dictionary as a key.</p>
+                    <ul>
+                        <li>If so, you want to copy the key's value to the clipboard using <em>pyperclip.copy()</em>. </li>
+                        <li>Note: You don't actually need the account variable; you can just use <em>sys.argv[1]</em><br>
+                        everywhere account is used in the program. However, a variable named 'account' is much more <br>
+                        readable than something cryptic like <em>sys.argv[1]</em></li>
+                            <ul>
+                            </ul>
+                            <container class="codebox2">
+                            <p id="codebox2">
+                                #! python3<br>
+                                #vipergrip.py - an insecure password locker program.<br>
+                                <br>
+                                PASSWORDS = {<br>
+                                'email' : 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',<br>
+                                'blog' : 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',<br>
+                                'luggage' : '12345'}<br>
+                                <br>
+                                <br>
+                                import sys<br>
+                                import pyperclip<br>
+                                <br>
+                                <br>
+                                if len(sys.argv) < 2:<br>
+                                    print('Usage: python vipergrip.py [account] - copy account password')<br>
+                                    sys.exit()<br>
+                                    <br>
+                                account = sys.argv[1] #first command line argument is the account name<br>
+                                <br>
+                                if account in PASSWORDS:<br>
+                                    pyperclip.copy(PASSWORDS[account])<br>
+                                    print('Password for ' + account + ' copied to clipboard.')<br>
+                                else:<br>
+                                    print('There is no account name ' + account)<br>
+                                    <br>
+                            </container>
+                            </p>
+                        </li>
+            </ol>
+        </ul>
+    </div>
+</body>
+</html>

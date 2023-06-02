@@ -1,4 +1,4 @@
-'''birthdays = {
+birthdays = {
     'famara': 'Nov 9',
     'modou': 'Feb 15',
     'sanna': 'Apr 3',
@@ -13,13 +13,13 @@ while True:
     if name in birthdays:
         print(birthdays[name] + ' is the birthday of ' + name)
     else:
-        print('I do not have birthdday ')
+        print('I do not have a birthdday ')
         print('What is their birthday?')
         bday = input()
         birthdays[name] = bday
         print('Birthday database updated.')
-print(birthdays)
-'''
+        print(birthdays)
+
 def linebreak():
     print('\n----\n')
 print('\n\n\n')
