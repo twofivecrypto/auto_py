@@ -1,0 +1,25 @@
+1. What does the code for an empty dictionary look like?
+
+emptyDictionary = {}
+
+2. questionTwo = {
+    'foo': 42
+}
+
+3. Dictionaries use many data types, not just integers.
+
+4. it will throw a keyerror message, saying its out of range
+
+5 & 6. 'cat' in spam checks for 'cat' in the dictionary, while
+    'cat' in spam.keys() checks for cat in the keys values.
+        same with the spam.values(), it checks for 'cat' in 
+            spam.values() :: Returns a boolean value of True or False
+
+7. if 'color' not in spam:
+    spam['color'] = 'black'
+
+    shortcut is:
+
+    spam.setdefault('color', 'black')
+
+8. pprint can be used to 'pretty print' dictionary values.
