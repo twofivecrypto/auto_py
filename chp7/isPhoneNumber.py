@@ -1,3 +1,4 @@
+#longer method
 def isPhoneNumer(text):
     if len(text) != 12:
         return False
@@ -22,3 +23,11 @@ for i in range(len(message)):
     if isPhoneNumer(chunk):
         print('Phone number found: ' + chunk)
 print('Done')
+
+'''
+Output:
+
+Phone number found: 415-555-1011
+Phone number found: 415-555-9999
+Done
+'''
