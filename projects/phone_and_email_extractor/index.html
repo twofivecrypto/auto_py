@@ -7,34 +7,80 @@
     <title>Project: Phone Number & Email Address Extractor</title>
     <style>
         * {
-            background-color: rgb(19, 19, 19);
-            color:whitesmoke;
-            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
+        
+        body {
+            background-color: #191919;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            padding: 20px;
+        }
+        
         h1 {
-            color:rgb(255, 177, 60);
+            color: #FFB13C;
+            font-size: 24px;
+            font-weight: bold;
             text-align: center;
+            margin-bottom: 20px;
         }
+        
+        h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
         h4 {
-            color:rgb(221, 84, 255);
+            color: #DD54FF;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .custom-line {
-            color: rgb(76, 255, 60); /* Change the line color */
-            border-style: dashed; /* Change the line style */
-            border-width: 2px; /* Change the line thickness */
-            margin: 20px 0; /* Add margin to adjust spacing around the line */
+        
+        ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            margin-bottom: 20px;
         }
-        #highlight{
-
+        
+        hr {
+            border: none;
+            border-top: 2px dashed #4CFF3C;
+            margin: 20px 0;
+        }
+        
+        pre {
+            background-color: #2E2E2E;
+            border-radius: 5px;
+            color: #FFFFFF;
+            font-family: Consolas, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+            padding: 10px;
+            white-space: pre-wrap;
+        }
+        
+        code {
+            display: inline-block;
+        }
+        
+        /* Add hover animation */
+        pre:hover {
+            transform: scale(1.0125);
+            transition: transform 0.25s ease-in-out;
         }
     </style>
 </head>
 <body>
     <h1>Project Overview:</h1>
-    <h3>Imagine you could quickly find email addresses and phone numbers in large bodies of texts by simply
+    <h3>Imagine you could quickly find email addresses and phone numbers in large bodies of text by simply
         pressing CTRL + A to select all the text, CTRL + C to copy it to the clipboard, and through this widget
-        that we're going to build, pressing CTRL + V in order to paste only the desired text, in this case, phone
-        numbers and emails addresses.<br><br>Well imagine no longer, lets get to building one.
+        that we're going to build, pressing CTRL + V to paste only the desired text, in this case, phone
+        numbers and email addresses.<br><br>Well, imagine no longer. Let's get to building one.
     </h3>
     <h4>TAKE NOTE:</h4>
     <ol>
@@ -45,11 +91,57 @@
     <h4>CODE REQUIREMENTS:</h4>
     <ol>
         <li>Use the pyperclip module to copy and paste strings.</li>
-        <li>Create two regexes, one for matching phone numbers the other for matching email addresses.</li>
+        <li>Create two regexes, one for matching phone numbers and the other for matching email addresses.</li>
         <li>Find all matches, not just the first match, of both regexes.</li>
         <li>Neatly format the matched strings into a single string to paste.</li>
         <li>Display some kind of message if no matches were found in the text.</li>
     </ol>
-    <hr class="custom-line">
+    <hr>
+    <h4>Python Code:</h4>
+    <pre><code>
+        <span id="highlight">
+            #! python3
+            #phoneAndEmail.py - FINDS PHONE NUMBERS AND EMAIL ADDRESSES ON THE CLIPBOARD
+
+            import pyperclip
+            import re
+
+            phoneRegex = re.compile(r'''(
+                (\d{3}|\(\d{3}\))?                  #areacode
+                (\s|-|\.)?                          #separator
+                (\d{3})                             #first 3 digits
+                (\s|-|\.)                           #separator
+                (\d{4})                             #last 4 digits
+                (\s*(ext|x|ext.)\s*(\d{2,5}))?
+            )''', re.VERBOSE)
+
+            #TODO: Create email regex.
+            emailRegex = re.compile(r'''(
+                [a-zA-Z0-9._%+-]+       #username
+                @                       # @ symbol
+                [a-zA-Z0-9-]+           #domain name
+                (\.[a-zA-Z]{2,4})       #dot-something
+            )''', re.VERBOSE)
+
+
+            #TODO: Find matches in clipboard text.
+            text = str(pyperclip.paste())
+            matches = []
+            for groups in phoneRegex.findall(text):
+                phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+                if groups[8] != '':
+                    phoneNum += ' x' + groups[8]
+                matches.append(phoneNum)
+            for groups in emailRegex.findall(text):
+                matches.append(groups[0])
+            #TODO: Copy results to the clipboard.
+            if len(matches) > 0:
+                pyperclip.copy('\n'.join(matches))
+                print('Copied to clipboard:')
+                print('\n'.join(matches))
+            else:
+                print('No phone numbers or email addresses found.')
+        </span>
+    </code></pre>
 </body>
 </html>
