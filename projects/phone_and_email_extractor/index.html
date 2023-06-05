@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Phone Number & Email Address Extractor</title>
+    <style>
+        * {
+            background-color: rgb(19, 19, 19);
+            color:whitesmoke;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            color:rgb(255, 177, 60);
+            text-align: center;
+        }
+        h4 {
+            color:rgb(221, 84, 255);
+        }
+        .custom-line {
+            color: rgb(76, 255, 60); /* Change the line color */
+            border-style: dashed; /* Change the line style */
+            border-width: 2px; /* Change the line thickness */
+            margin: 20px 0; /* Add margin to adjust spacing around the line */
+        }
+        #highlight{
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Overview:</h1>
+    <h3>Imagine you could quickly find email addresses and phone numbers in large bodies of texts by simply
+        pressing CTRL + A to select all the text, CTRL + C to copy it to the clipboard, and through this widget
+        that we're going to build, pressing CTRL + V in order to paste only the desired text, in this case, phone
+        numbers and emails addresses.<br><br>Well imagine no longer, lets get to building one.
+    </h3>
+    <h4>TAKE NOTE:</h4>
+    <ol>
+        <li>Get the text off the clipboard.</li>
+        <li>Find all phone numbers and email addresses in the text.</li>
+        <li>Paste them onto the clipboard.</li>
+    </ol>
+    <h4>CODE REQUIREMENTS:</h4>
+    <ol>
+        <li>Use the pyperclip module to copy and paste strings.</li>
+        <li>Create two regexes, one for matching phone numbers the other for matching email addresses.</li>
+        <li>Find all matches, not just the first match, of both regexes.</li>
+        <li>Neatly format the matched strings into a single string to paste.</li>
+        <li>Display some kind of message if no matches were found in the text.</li>
+    </ol>
+    <hr class="custom-line">
+</body>
+</html>
