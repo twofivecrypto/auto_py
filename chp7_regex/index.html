@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7: Review of Regex Symbols</title>
+    <style>
+        * {
+            background-color: rgb(39, 39, 39);
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <h2>Chapter 7: Review</h2>
+    <div class="review-list">
+        <ol>
+            <li>The ? matches zero or one of the preceding group.</li>
+            <li>The * matches zero or one of the preceding group.</li>
+            <li>The + matches zero or one of the preceding group.</li>
+            <li>The {n} matches exactly <em>n</em> or more of the preceding group.</li>
+            <li>The {n,} matches exactly <em>n</em> or more of the preceding group.</li>
+            <li>The {,m} matches 0 to <em>m</em> of the preceding group.</li>
+            <li>The {n,m} matches at least <em>n</em> and at most <em>m</em> of the preceding group.</li>
+            <li>{n,m}? or *? or +? performs a nongreedy match of the preceding group (at least).</li>
+            <li>^spam means the string must begin with <em>spam.</em></li>
+            <li>spam$ means the string must end with <em>spam.</em></li>
+            <li>The . matches any character, except newline characters.</li>
+            <li>\d, \w, and \s match a digit, word, or space character, respectively.</li>
+            <li>\D, \W, and \S match anything except a digit, word, or space character, respectively.</li>
+            <li>[abc] matches any character betweeen the brackets (such as <em>a, b, or c</em>).</li>
+            <li>[^abc] matches any character that isn't between the brackets.</li>
+        </ol>
+    </div>
+</body>
+</html>

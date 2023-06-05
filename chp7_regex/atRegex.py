@@ -18,10 +18,11 @@ mo = greedyRegex.search('<To serve man> for dinner.>')
 print(mo)#<To serve man> for dinner.>
 print('\n--\n--')
 #USING THE DOT CHARACTER
-noNewlineregex = re.compile('.*')
-print(noNewlineregex.search('''Serve the public trust.\n
+noNewlineRegex = re.compile('.*')
+print(noNewlineRegex.search('''Serve the public trust.\n
                             Protect the innocent.\n
                             Serve the laws of God.''').group()) #Serve the public trust.
 
 print('\n---\n---')
 print('newline')
+
