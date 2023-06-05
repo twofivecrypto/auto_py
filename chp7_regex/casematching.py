@@ -19,11 +19,21 @@ phoneRegex = re.compile(r'((\d{3}|\d3\d3)?(\s|-|.)?\d{3}(\s|-|.)\d{4}(\s*(ext|x|
 print(phoneRegex)
 
 #THIS IS HOW YOU PRINT IT
+import re
+
 phoneRegex = re.compile(r'''(
-    (\d{3}|(\d{3}\))?           #area code
-    (\s|-|\.)?                  #separator
-    \d{3}                       #first 3 digits
-    (\s|-|\.)                   #separator
-    (\d{4}                      #last 4 digits
-    (\s*(ext|x|ext.)\s*\d{2,5})?    #extension
-    )''', re.VERBOSE)
+    (\d{3}|\d{3}\))?             # area code
+    (\s|-|\.)?                   # separator
+    \d{3}                        # first 3 digits
+    (\s|-|\.)                    # separator
+    \d{4}                        # last 4 digits
+    (\s*(ext|x|ext.)\s*\d{2,5})?  # extension
+)''', re.VERBOSE)
+
+print(phoneRegex)
+
+someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL)
+print(someRegexValue)
+someRegexvalue = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE)
+print(someRegexValue)
+#Both Output the Same
