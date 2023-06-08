@@ -1,16 +1,13 @@
-#! python3
-#randomQuiz.py - Creates quizzes with random ordered questions with their answers.
-
 import random
 
 capitals = {
     'Alabama': 'Montgomery',
     'Alaska': 'Juneau',
-    'Arizona': 'Pheonix',
+    'Arizona': 'Phoenix',
     'Arkansas': 'Little Rock',
     'California': 'Sacramento',
     'Colorado': 'Denver',
-    'Conneticut': 'Hartford',
+    'Connecticut': 'Hartford',
     'Delaware': 'Dover',
     'Florida': 'Tallahassee',
     'Georgia': 'Atlanta',
@@ -20,11 +17,11 @@ capitals = {
     'Indiana': 'Indianapolis',
     'Iowa': 'Des Moines',
     'Kansas': 'Topeka',
-    'Kentucky': 'Frankfurt',
-    'Lousiana': 'Baton Rouge',
+    'Kentucky': 'Frankfort',
+    'Louisiana': 'Baton Rouge',
     'Maine': 'Augusta',
     'Maryland': 'Annapolis',
-    'Massachuseets': 'Boston',
+    'Massachusetts': 'Boston',
     'Michigan': 'Lansing',
     'Minnesota': 'Saint Paul',
     'Mississippi': 'Jackson',
@@ -33,11 +30,11 @@ capitals = {
     'Nebraska': 'Lincoln',
     'Nevada': 'Carson City',
     'New Hampshire': 'Concord',
-    'New Jersy': 'Trenton',
-    'New Mexixo': 'Santa Fe',
+    'New Jersey': 'Trenton',
+    'New Mexico': 'Santa Fe',
     'New York': 'Albany',
     'North Carolina': 'Raleigh',
-    'North Dakota': 'Bismark',
+    'North Dakota': 'Bismarck',
     'Ohio': 'Columbus',
     'Oklahoma': 'Oklahoma City',
     'Oregon': 'Salem',
@@ -48,7 +45,7 @@ capitals = {
     'Tennessee': 'Nashville',
     'Texas': 'Austin',
     'Utah': 'Salt Lake City',
-    'Vermont': 'Montepelier',
+    'Vermont': 'Montpelier',
     'Virginia': 'Richmond',
     'Washington': 'Olympia',
     'West Virginia': 'Charleston',
@@ -56,10 +53,39 @@ capitals = {
     'Wyoming': 'Cheyenne'
 }
 
-#GENERATE 35 QUIZ FILES
-
+# GENERATE 35 QUIZ FILES
 for quizNum in range(35):
-    #TODO: CREATE THE QUIZ AND ANSWER KEY FILES
-    #TODO: WRITE OUT THE HEADER FOR THE QUIZ
-    #TODO: SHUFFLE THE ODER OF TEH STATES
-    #TODO: LOOP THROUGH ALL 50 STATES, MAKING A QUESTION FOR EACH
+    # CREATE THE QUIZ AND ANSWER KEY FILES
+    quizFile = open('capitalsquiz%s.txt' % (quizNum + 1), 'w')
+    answerKeyFile = open('capitalsquiz_answers%s.txt' % (quizNum + 1), 'w')
+    
+    # WRITE OUT THE HEADER FOR THE QUIZ
+    quizFile.write('Name:\n\nDate:\n\nPeriod:\n\n')
+    quizFile.write((' ' * 20) + 'State Capitals Quiz (Form %s)' % (quizNum + 1))
+    quizFile.write('\n\n')
+    
+    # SHUFFLE THE ORDER OF THE STATES
+    states = list(capitals.keys())
+    random.shuffle(states)
+    
+    # LOOP THROUGH ALL 50 STATES, MAKING A QUESTION FOR EACH
+    for questionNum in range(50):
+        # Get right and wrong answers
+        correctAnswer = capitals[states[questionNum]]
+        wrongAnswers = list(capitals.values())
+        del wrongAnswers[wrongAnswers.index(correctAnswer)]
+        wrongAnswers = random.sample(wrongAnswers, 3)
+        answerOptions = wrongAnswers + [correctAnswer]
+        random.shuffle(answerOptions)
+        
+        # WRITE THE QUESTION AND ANSWER OPTIONS TO THE QUIZ FILE
+        quizFile.write('%s. What is the capital of %s?\n' % (questionNum + 1, states[questionNum]))
+        for i in range(4):
+            quizFile.write('    %s. %s\n' % ('ABCD'[i], answerOptions[i]))
+        quizFile.write('\n')
+        
+        # WRITE THE ANSWER KEY TO A FILE
+        answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
+    
+    quizFile.close()
+    answerKeyFile.close()
