@@ -26,3 +26,11 @@ Output
 *32768
 *0.03125 MB
 '''
+print('\n-----')
+#CHECKING PATH VALIDITY
+print(os.path.exists('C:\\Users\\94M0\\Documents\\PYTHON'))#True
+print(os.path.exists('D:\\some_made_up_folder'))#False
+print(os.path.isdir('C:\\Users\\94M0\\Documents\\PYTHONSCRIPTS'))#True
+print(os.path.isdir('C:\\Users\\94M0\\Documents\\PYTHONSCRIPTS\\made_up_folder'))#False
+print(os.path.isdir('C:\\Users\\94M0\\Documents\\PYTHONSCRIPTS\\made_up_folder\\made_up_file.py'))#False
+print(os.path.isdir("C:\\Users\\94M0\\Documents\\PYTHONSCRIPTS\\batFiles\\viperGrip.bat"))#False
