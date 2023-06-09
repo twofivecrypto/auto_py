@@ -68,6 +68,10 @@
             padding: 5px;
             overflow-x: auto;
         }
+
+        p:not(.python-code) {
+            line-height: 2;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
@@ -115,5 +119,19 @@ elif len(sys.argv) == 2:
 mcbShelf.close()</code></pre>
         </div>
     </div>
+    <br>
+    <br>
+    <p><strong>Here's What the Program Does:</strong></p>
+    <ul>
+        <li>The command line argument for the keyword is checked.</li>
+        <li>If the argument is "save", then the clipboard contents are saved to the keyword.</li>
+        <li>If the argument is "list", then all the keywords are copied to the clipboard.</li>
+        <li>Otherwise, the text for the keyword is copied to the clipboard.</li>
+    </ul>
+    <ul class="drop-down-content">
+        <li>Read the command line arguments from sys.argv.</li>
+        <li>Read and write to the clipboard.</li>
+        <li>Save and load to a shelf file.</li>
+    </ul>
 </body>
 </html>
