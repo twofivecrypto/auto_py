@@ -7,8 +7,8 @@
     <title>Multiclipboard README</title>
     <style>
         body {
-            background-color: rgb(11, 11, 11);
-            color: whitesmoke;
+            background-color: skyblue;
+            color: rgb(24, 24, 24);
             font-family: "Press Start 2P", cursive;
             padding: 20px;
         }
@@ -81,18 +81,20 @@
 </head>
 <body>
     <h1>Using Multiclipboard</h1>
+    <br>
     <h3>Instructions:</h3>
+    <br>
     <div class="drop-down">
-        <label for="drop-down-input" class="drop-down-label">The program will save each piece of clipboard text under a keyword.</label>
+        <label for="drop-down-input" class="drop-down-label">The program will save each piece of clipboard text under a keyword....</label>
         <input type="checkbox" id="drop-down-input" class="drop-down-input">
         <ul class="drop-down-content">
-            <li>
+            <i>
                 For example, when you run py <em>mcb.pyw save spam</em>, the current contents of the
-                clipboard will be saved with the keyword <em><strong>spam</strong></em>. This text can later be loaded
-                to the clipboard again by running <em>py mcb.pyw spam</em>. And if the user forgets what
-                keywords they have, they can run <em>py mcb.pyw list</em> to copy a list of all keywords
+                clipboard will be saved with the keyword <em><strong>spam</strong></em>. <br><br>This text can later be loaded
+                to the clipboard again by running <em><strong>py mcb.pyw spam</strong></em>.<br><br> And if the user forgets what
+                keywords they have, they can run <em><strong>py mcb.pyw list</strong></em> to copy a list of all keywords
                 to the clipboard.
-            </li>
+            </i>
         </ul>
     </div>
     <div class="code-area">
