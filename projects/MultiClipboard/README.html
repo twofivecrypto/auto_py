@@ -84,21 +84,18 @@
 <body>
     <h1>Using Multiclipboard</h1>
     <br>
-    <h3>Instructions:</h3>
-    <br>
-    <div class="drop-down">
-        <label for="drop-down-input" class="drop-down-label">The program will save each piece of clipboard text under a keyword....</label>
-        <input type="checkbox" id="drop-down-input" class="drop-down-input">
-        <ul class="drop-down-content">
-            <i>
-                For example, when you run py <em>mcb.pyw save spam</em>, the current contents of the
-                clipboard will be saved with the keyword <em><strong>spam</strong></em>. <br><br>This text can later be loaded
-                to the clipboard again by running <em><strong>py mcb.pyw spam</strong></em>.<br><br> And if the user forgets what
-                keywords they have, they can run <em><strong>py mcb.pyw list</strong></em> to copy a list of all keywords
-                to the clipboard.
-            </i>
-        </ul>
-    </div>
+    <p><strong>Here's What the Program Does</strong></p>
+    <ul>
+        <li>The command line argument for the keyword is checked.</li><br>
+        <li>If the argument is "save", then the clipboard contents are saved to the keyword.</li><br>
+        <li>If the argument is "list", then all the keywords are copied to the clipboard.</li><br>
+        <li>Otherwise, the text for the keyword is copied to the clipboard.</li><br>
+    </ul>
+    <ul class="drop-down-content">
+        <li>Read the command line arguments from sys.argv.</li>
+        <li>Read and write to the clipboard.</li>
+        <li>Save and load to a shelf file.</li>
+    </ul>
     <div class="code-area">
         <div class="python-code">
             <pre><code class="language-python">#! python3
@@ -125,17 +122,20 @@ mcbShelf.close()</code></pre>
     </div>
     <br>
     <br>
-    <p><strong>Here's What the Program Does</strong></p>
-    <ul>
-        <li>The command line argument for the keyword is checked.</li><br>
-        <li>If the argument is "save", then the clipboard contents are saved to the keyword.</li><br>
-        <li>If the argument is "list", then all the keywords are copied to the clipboard.</li><br>
-        <li>Otherwise, the text for the keyword is copied to the clipboard.</li><br>
-    </ul>
-    <ul class="drop-down-content">
-        <li>Read the command line arguments from sys.argv.</li>
-        <li>Read and write to the clipboard.</li>
-        <li>Save and load to a shelf file.</li>
-    </ul>
+    <h3>Instructions:</h3>
+    <br>
+    <div class="drop-down">
+        <label for="drop-down-input" class="drop-down-label">The program will save each piece of clipboard text under a keyword....</label>
+        <input type="checkbox" id="drop-down-input" class="drop-down-input">
+        <ul class="drop-down-content">
+            <i>
+                For example, when you run py <em>mcb.pyw save spam</em>, the current contents of the
+                clipboard will be saved with the keyword <em><strong>spam</strong></em>. <br><br>This text can later be loaded
+                to the clipboard again by running <em><strong>py mcb.pyw spam</strong></em>.<br><br> And if the user forgets what
+                keywords they have, they can run <em><strong>py mcb.pyw list</strong></em> to copy a list of all keywords
+                to the clipboard.
+            </i>
+        </ul>
+    </div>
 </body>
 </html>
