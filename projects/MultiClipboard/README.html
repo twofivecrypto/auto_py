@@ -80,17 +80,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
 </head>
 <body>
-    <h1>How To Use Multiclipboard</h1>
+    <h1>Using Multiclipboard</h1>
     <h3>Instructions:</h3>
     <div class="drop-down">
         <label for="drop-down-input" class="drop-down-label">The program will save each piece of clipboard text under a keyword.</label>
         <input type="checkbox" id="drop-down-input" class="drop-down-input">
         <ul class="drop-down-content">
             <li>
-                For example, when you run py mcb.pyw save spam, the current contents of the
-                clipboard will be saved with the keyword "spam". This text can later be loaded
-                to the clipboard again by running py mcb.pyw spam. And if the user forgets what
-                keywords they have, they can run py mcb.pyw list to copy a list of all keywords
+                For example, when you run py <em>mcb.pyw save spam</em>, the current contents of the
+                clipboard will be saved with the keyword <em><strong>spam</strong></em>. This text can later be loaded
+                to the clipboard again by running <em>py mcb.pyw spam</em>. And if the user forgets what
+                keywords they have, they can run <em>py mcb.pyw list</em> to copy a list of all keywords
                 to the clipboard.
             </li>
         </ul>
@@ -121,12 +121,12 @@ mcbShelf.close()</code></pre>
     </div>
     <br>
     <br>
-    <p><strong>Here's What the Program Does:</strong></p>
+    <p><strong>Here's What the Program Does</strong></p>
     <ul>
-        <li>The command line argument for the keyword is checked.</li>
-        <li>If the argument is "save", then the clipboard contents are saved to the keyword.</li>
-        <li>If the argument is "list", then all the keywords are copied to the clipboard.</li>
-        <li>Otherwise, the text for the keyword is copied to the clipboard.</li>
+        <li>The command line argument for the keyword is checked.</li><br>
+        <li>If the argument is "save", then the clipboard contents are saved to the keyword.</li><br>
+        <li>If the argument is "list", then all the keywords are copied to the clipboard.</li><br>
+        <li>Otherwise, the text for the keyword is copied to the clipboard.</li><br>
     </ul>
     <ul class="drop-down-content">
         <li>Read the command line arguments from sys.argv.</li>
