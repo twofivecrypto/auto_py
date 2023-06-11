@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bug Tracker</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bug Tracker</h1>
+
+    <h2>All Bugs</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        {% for bug in bugs %}
+            <tr>
+                <td>{{ bug.title }}</td>
+                <td>{{ bug.description }}</td>
+                <td>{{ bug.status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Open Bugs</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        {% for bug in open_bugs %}
+            <tr>
+                <td>{{ bug.title }}</td>
+                <td>{{ bug.description }}</td>
+                <td>{{ bug.status }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
