@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Explorer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Dark mode styles */
+    body {
+      background-color: #333333;
+      color: #ffffff;
+    }
+
+    /* Dropdown style */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #292929;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Dropdown links */
+    .dropdown-content a {
+      color: #ffffff;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #444444;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Main container style */
+    .container {
+      margin-top: 20px;
+    }
+
+    /* Folder and file style */
+    .folder:before {
+      content: "\f07b";
+      font-family: FontAwesome;
+      margin-right: 5px;
+      color: #ffffff;
+    }
+
+    .file:before {
+      content: "\f15b";
+      font-family: FontAwesome;
+      margin-right: 5px;
+      color: #ffffff;
+    }
+
+    /* Minimize icon */
+    .minimize:before {
+      content: "\f078";
+      font-family: FontAwesome;
+      margin-left: 5px;
+      color: #ffffff;
+    }
+  </style>
+  <script>
+    // Function to toggle the dropdown menu
+    function toggleDropdown() {
+      var dropdown = document.getElementById("dropdownMenu");
+      dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="dropdown">
+      <button class="dropdown-btn" onclick="toggleDropdown()">D:\auto_py</button>
+      <div class="dropdown-content" id="dropdownMenu">
+        <a href="#">.git</a>
+        <a href="#">auto_py_output.txt</a>
+        <a href="#">Flask_Web_Development_Developing.pdf</a>
+        <a href="#">.vscode</a>
+        <a href="#">ch1_basics</a>
+        <a href="#">ch2_flow_control</a>
+        <a href="#">ch3_functions</a>
+        <a href="#">chp4_lists</a>
+        <a href="#">chp5_dictionaries&structuring_data</a>
+        <a href="#">chp6_manipulating_strings</a>
+        <a href="#">chp7_regex</a>
+        <a href="#">chp8_reading_writing_files</a>
+        <a href="#">chp9_organizing_files</a>
+        <a href="#">dl_pdfs</a>
+        <a href="#">myCats</a>
+        <a href="#">projects</a>
+        <a href="#">solo_p</a>
+        <button class="minimize" onclick="toggleDropdown()"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add more dropdowns for subfolders and files -->
+</body>
+</html>

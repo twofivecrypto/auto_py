@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Dashboard</title>
+    <style>
+        .folder {
+            margin-left: 20px;
+        }
+
+        .file {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>File Dashboard</h1>
+
+    <ul>
+        {% for folder, data in file_tree.items() %}
+            <li class="folder">
+                <strong>{{ folder }}</strong>
+                <ul>
+                    {% for sub_dir in data['sub_dirs'] %}
+                        <li class="folder">
+                            <a href="{{ sub_dir['path'] }}">{{ sub_dir['name'] }}</a>
+                        </li>
+                    {% endfor %}
+                    {% for file in data['sub_files'] %}
+                        <li class="file">
+                            <a href="{{ file['path'] }}">{{ file['name'] }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
