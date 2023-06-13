@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Text Extractor Documentation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai-sublime.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #272822;
+      color: #f8f8f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #66ef8f;
+    }
+
+    hgroup.steps {
+        background-color: #3e3d32;
+        border-radius: 5px;
+        padding: 5px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .code {
+      background-color: #3e3d32;
+      color: #f8f8f2;
+      padding: 2px 4px;
+      font-size: 1.05em;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #2c2c27;
+      border-radius: 4px;
+      padding: 10px;
+      overflow: auto;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Empty Template</h1>
+  <hgroup class="steps">
+    <ol>
+        <li> ... <code>insert code here</code> ...</li>
+        <li> ... <code>insert code here</code> ...</li>
+        <li> ... <code>insert code here</code> ...</li>
+        <li> ... <code>insert code here</code> ...</li>
+      </ol>
+  </hgroup>
+
+  <h2>Code</h2>
+  <pre><code class="python">
+import shutil
+import os
+
+def text_extractor(source_file):
+    # Read the content of the source file
+    with open(source_file, 'r') as file:
+        text = file.read()
+
+    # Create a new filename with the "-innerText" suffix
+    base_filename = os.path.basename(source_file)
+    new_filename = os.path.splitext(base_filename)[0] + "-innerText.txt"
+
+    # Write the extracted text to the new file
+    with open(new_filename, 'w') as file:
+        file.write(text)
+
+    # Return the path of the new file
+    return new_filename
+
+# Set the source file path
+source_file = 'D:\\auto_py\\ch1_basics\\filename.txt'
+
+# Extract the text and get the path of the new file
+new_file_path = text_extractor(source_file)
+
+print(f"Text extracted and saved to: {new_file_path}")
+  </code></pre>
+</body>
+</html>
