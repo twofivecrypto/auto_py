@@ -1,0 +1,29 @@
+This program defines a function text_extractor that takes a source file as input, extracts the text content from the file, and saves it to a new file with the "-innerText" suffix. The program then sets the source file path and calls the text_extractor function, providing the source file path. Finally, it prints the path of the new file where the extracted text is saved.
+
+
+import shutil
+import os
+
+def text_extractor(source_file):
+    # Read the content of the source file
+    with open(source_file, 'r') as file:
+        text = file.read()
+
+    # Create a new filename with the "-innerText" suffix
+    base_filename = os.path.basename(source_file)
+    new_filename = os.path.splitext(base_filename)[0] + "-innerText.txt"
+
+    # Write the extracted text to the new file
+    with open(new_filename, 'w') as file:
+        file.write(text)
+
+    # Return the path of the new file
+    return new_filename
+
+# Set the source file path
+source_file = 'D:\\auto_py\\ch1_basics\\filename.txt'
+
+# Extract the text and get the path of the new file
+new_file_path = text_extractor(source_file)
+
+print(f"Text extracted and saved to: {new_file_path}")
