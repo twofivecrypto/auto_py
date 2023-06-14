@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Lessons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>LeetCode Lessons</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="lesson">
+                <h2>Two Sum</h2>
+                <p>
+                    Given an array of integers nums and an integer target, return indices of the two numbers such that
+                    they add up to target. You may assume that each input would have exactly one solution, and you may
+                    not use the same element twice.
+                </p>
+                <h3>Example:</h3>
+                <pre>
+                    Input: nums = [2,7,11,15], target = 9
+                    Output: [0,1]
+                    Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+                </pre>
+                <h3>Python Solution:</h3>
+                <pre>
+                    <code class="python">
+def twoSum(nums, target):
+    num_dict = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in num_dict:
+            return [num_dict[complement], i]
+        num_dict[num] = i
+    return []
+
+nums = [2, 7, 11, 15]
+target = 9
+result = twoSum(nums, target)
+print(result)
+                    </code>
+                </pre>
+                <button class="save-button">Save Lesson</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
