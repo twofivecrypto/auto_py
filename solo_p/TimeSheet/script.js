@@ -7,15 +7,6 @@ document.getElementById("submit-btn").addEventListener("click", function() {
     document.getElementById("total").textContent = totalHours.toFixed(2);
   });
   
-  document.addEventListener("DOMContentLoaded", function() {
-    flatpickr(".time-input", {
-      enableTime: true,
-      noCalendar: true,
-      dateFormat: "H:i",
-      time_24hr: true,
-    });
-  });
-  
   function calculateTotalHours(startTime, endTime) {
     var start = new Date("2000-01-01 " + startTime);
     var end = new Date("2000-01-01 " + endTime);
