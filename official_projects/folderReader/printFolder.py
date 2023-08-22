@@ -3,7 +3,7 @@
 want to walk through the directory tree, touching each file as we go.
     Writing a program to do this could get trick, but Python provides a function to handle this process for us.
     
-    Let's write an example program that uses teh os.walk() on a directory tree.
+    Let's write an example program that uses the os.walk() on a directory tree.
 '''
 
 import os
