@@ -35,4 +35,8 @@ time.sleep(7)
 buttons = driver.find_elements("xpath", "//a[.//span[text()[contains(., 'Paperback')]]]//span[text()[contains(., '$')]]")
 
 for button in buttons:
-    print(button.get_attribute("innerHTML")).replace("&nbsp;", " ")
+    inner_html = button.get_attribute("innerHTML")
+    if inner_html is not None:
+        print(inner_html.replace("&nbsp;", " "))
+    else:
+        print("Button innerHTML is None")
