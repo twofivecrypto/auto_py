@@ -1,6 +1,6 @@
+# GETTING SHEETS FROM THE WORKBOOK
 import openpyxl
 
-# GETTING SHEETS FROM THE WORKBOOK
 wb = openpyxl.load_workbook('D:\\auto_py\\chp12_excel\\example.xlsx')
 print(wb.get_sheet_names())
 
