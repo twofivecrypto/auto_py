@@ -37,4 +37,11 @@ class MangoBasket:
         self.top_mango = self.top_mango.next_mango
         return
     
+    
+    # Return to this later
+    
+name = 'Famara'
+status = 'Founder'
+    
+    
         
